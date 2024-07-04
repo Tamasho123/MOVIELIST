@@ -1,0 +1,213 @@
+:root {
+  --primary-color: #007182;
+  --light-primary: #12a0a5;
+  --lighthest-color: #f0f9fa;
+  --secondary-color: #b60000;
+  --light-secondary: #7a0000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+button {
+  cursor: pointer;
+  all: unset;
+}
+
+.txt-animado span {
+  position: relative;
+}
+
+.txt-animado span::before {
+  content: "";
+  animation: palavras 20s infinite;
+}
+
+.txt-animado span::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  border-left: 2px solid var(--primary-color);
+  right: -10px;
+  animation: cursor 0.8s infinite, digita 20s steps(15) infinite;
+  width: calc(100% + 13px);
+  background-color: var(--lighthest-color);
+}
+
+@keyframes digita {
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0;
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 13px);
+  }
+}
+
+@keyframes cursor {
+  0% {
+    border-left: 2px solid var(--lighthest-color);
+  }
+}
+
+@keyframes palavras {
+  0%,
+  20% {
+    content: "agora a sua lista de filmes!";
+  }
+  21%,
+  40% {
+    content: "agora a sua lista de filmes!";
+  }
+  41%,
+  60% {
+    content: "agora a sua lista de filmes!";
+  }
+  61%,
+  80% {
+    content: "agora a sua lista de filmes!";
+  }
+  81%,
+  100% {
+    content: "agora a sua lista de filmes!";
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--lighthest-color);
+}
+
+#search-container {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+header h2 i {
+  margin-right: 0.3rem;
+}
+
+.movie-name-wrapper {
+  width: 65%;
+  display: flex;
+  align-items: center;
+}
+
+.movie-year-wrapper {
+  /* width: 30%; */
+  display: flex;
+  align-items: center;
+}
+
+.search-button {
+  width: 5%;
+}
+
+.movie-year-wrapper input {
+  max-width: 5rem;
+}
+
+.movie-name-wrapper input {
+  width: 100%;
+}
+.movie-name-wrapper input,
+.movie-year-wrapper input {
+  margin: 0 0.5rem;
+  border-radius: 10px;
+  border: none;
+  padding: 0.3rem;
+  font-weight: bold;
+}
+
+.movie-name-wrapper label,
+.movie-year-wrapper label {
+  font-weight: bold;
+}
+
+#search-button {
+  all: unset;
+  padding: 0.2rem 0.4rem;
+  border: solid 2px var(--lighthest-color);
+  border-radius: 10px;
+}
+
+#search-button:focus,
+#search-button:hover {
+  background-color: var(--light-primary);
+}
+
+main {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: var(--lighthest-color);
+  flex-grow: 1;
+  color: var(--primary-color);
+}
+
+#movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+#movie-list article {
+  display: flex;
+  flex-direction: column;
+}
+
+#movie-list article > img {
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0 1rem #000000b3;
+}
+
+.remove-button {
+  border: 3px solid var(--light-secondary);
+  padding: 0.2rem 0;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px #000;
+  color: var(--secondary-color);
+}
+
+.remove-button:focus,
+.remove-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--lighthest-color);
+}
